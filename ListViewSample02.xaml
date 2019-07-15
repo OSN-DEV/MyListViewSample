@@ -1,0 +1,32 @@
+﻿<Window x:Class="MyListViewSample.ListViewSample02"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyListViewSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <ListView Name="cList" Grid.Column="0" Grid.Row="1" Height="270" ItemsSource="{Binding}" >
+            <ListView.Template>
+                <ControlTemplate TargetType="ItemsControl">
+                    <Border BorderThickness="5" BorderBrush="Black" Background="Azure">
+                        <ItemsPresenter  />
+                    </Border>
+                </ControlTemplate>
+            </ListView.Template>
+            
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding DisplayText}" VerticalAlignment="Center" Padding="2" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</Window>
